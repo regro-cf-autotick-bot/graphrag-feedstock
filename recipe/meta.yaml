@@ -21,7 +21,6 @@ requirements:
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
-    - devtools >=0.12.2,<0.13.0
     - json-repair >=0.26.0,<0.27.0
     - python >=3.10,<3.13
     - environs >=11.0.0,<12.0.0
