@@ -1,5 +1,5 @@
 {% set name = "graphrag" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graphrag-{{ version }}.tar.gz
-  sha256: 57c8338776e94d6c3c1a263bf41cf2f6317329c0f41a8a3a3b050f7d16499462
+  sha256: c475edd209d4f019f4db54f155fff35a121e6781db1e0610066f7b5778472aa3
 
 build:
   noarch: python
@@ -21,18 +21,19 @@ requirements:
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
+    - devtools >=0.12.2,<0.13.0
     - json-repair >=0.26.0,<0.27.0
     - python >=3.10,<3.13
     - environs >=11.0.0,<12.0.0
     - datashaper >=0.0.49,<0.0.50
     - azure-search-documents >=11.4.0,<12.0.0
     - lancedb >=0.11.0,<0.12.0
-    - uvloop >=0.19.0,<0.20.0
+    - uvloop >=0.20.0,<0.21.0
     - nest-asyncio >=1.6.0,<2.0.0
     - aiolimiter >=1.1.0,<2.0.0
     - aiofiles >=24.1.0,<25.0.0
     - openai >=1.37.1,<2.0.0
-    - nltk 3.8.1
+    - nltk 3.9.1
     - tiktoken >=0.7.0,<0.8.0
     - numba 0.60.0
     - numpy >=1.25.2,<2.0.0
@@ -40,17 +41,17 @@ requirements:
     - networkx >=3.0.0,<4.0.0
     - fastparquet >=2024.2.0,<2025.0.0
     - scipy 1.12.0
-    - pyyaml >=6.0.1,<7.0.0
+    - pyyaml >=6.0.2,<7.0.0
     - pyaml-env >=1.2.1,<2.0.0
     - python-dotenv >=1.0.0,<2.0.0
     - tenacity >=9.0.0,<10.0.0
     - swifter >=1.4.0,<2.0.0
     - pydantic >=2.0.0,<3.0.0
     - rich >=13.6.0,<14.0.0
-    - textual >=0.74.0,<0.75.0
+    - textual >=0.76.0,<0.77.0
     - python-devtools >=0.12.2,<0.13.0
     - typing-extensions >=4.12.2,<5.0.0
-    - azure-storage-blob >=12.19.0,<13.0.0
+    - azure-storage-blob >=12.22.0,<13.0.0
     - azure-identity >=1.17.1,<2.0.0
 
 test:
