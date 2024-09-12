@@ -1,5 +1,5 @@
 {% set name = "graphrag" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graphrag-{{ version }}.tar.gz
-  sha256: 2a082e6c47ee93b469862d3f46b94e2578d2133c95f1280e07855f119a9279a8
+  sha256: bcd1dcc2d06c0b16bc5798d6bcdfbfbcc41ef35b9634118de6f1a1b05ba14deb
 
 build:
   noarch: python
@@ -21,6 +21,7 @@ requirements:
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
+    - devtools >=0.12.2,<0.13.0
     - future >=1.0.0,<2.0.0
     - json-repair >=0.28.4,<0.29.0
     - python >=3.10,<3.13
