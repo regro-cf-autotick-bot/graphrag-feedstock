@@ -1,5 +1,5 @@
 {% set name = "graphrag" %}
-{% set version = "0.3.4" %}
+{% set version = "0.3.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graphrag-{{ version }}.tar.gz
-  sha256: bcd1dcc2d06c0b16bc5798d6bcdfbfbcc41ef35b9634118de6f1a1b05ba14deb
+  sha256: 0775da1b8a0b1d1e113f6497a0ba86ef193490b08b34d76f1582411bdd4c1417
 
 build:
   noarch: python
