@@ -21,7 +21,6 @@ requirements:
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
-    - devtools >=0.12.2,<0.13.0
     - typer >=0.12.5,<0.13.0
     - typing_extensions >=4.12.2,<5.0.0
     - matplotlib-base >=3.9.0,<4.0.0
