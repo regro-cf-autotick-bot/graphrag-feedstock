@@ -1,7 +1,6 @@
 schema_version: 1
 
 context:
-  python_min: "3.10"
   name: graphrag
   version: "0.5.0"
 
@@ -20,11 +19,12 @@ build:
 
 requirements:
   host:
-    - python 3.10.*
+    - python ${{ python_min }}.*
     - poetry-core >=1.0.0
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
+    - python >=${{ python_min }}
     - typer >=0.12.5,<0.13.0
     - typing_extensions >=4.12.2,<5.0.0
     - matplotlib-base >=3.9.0,<4.0.0
