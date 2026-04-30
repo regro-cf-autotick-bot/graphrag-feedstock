@@ -1,27 +1,30 @@
-{% set python_min = '3.10' %}
-{% set name = "graphrag" %}
-{% set version = "0.5.0" %}
+schema_version: 1
+
+context:
+  name: graphrag
+  version: "0.5.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/graphrag-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/graphrag-${{ version }}.tar.gz
   sha256: afd4fe829d0e6453da154ae7b3b4c630c6f4cefd855649679692ea26de39fcdd
 
 build:
+  number: 2
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - poetry-core >=1.0.0
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
+    - python >=${{ python_min }}
     - typer >=0.12.5,<0.13.0
     - typing_extensions >=4.12.2,<5.0.0
     - matplotlib-base >=3.9.0,<4.0.0
@@ -30,7 +33,7 @@ requirements:
     - umap-learn >=0.5.6,<0.6.0
     - future >=1.0.0,<2.0.0
     - json-repair >=0.30.0,<0.31.0
-    - python >={{ python_min }},<3.13
+    - python >=${{ python_min }},<3.13
     - environs >=11.0.0,<12.0.0
     - datashaper >=0.0.49,<0.0.50
     - azure-search-documents >=11.4.0,<12.0.0
@@ -40,14 +43,14 @@ requirements:
     - aiolimiter >=1.1.0,<2.0.0
     - aiofiles >=24.1.0,<25.0.0
     - openai >=1.51.2,<2.0.0
-    - nltk 3.9.1
+    - nltk 3.9.1.*
     - tiktoken >=0.7.0,<0.8.0
-    - numba 0.60.0
+    - numba 0.60.0.*
     - numpy >=1.25.2,<2.0.0
     - graspologic >=3.4.1,<4.0.0
     - networkx >=3.0.0,<4.0.0
     - fastparquet >=2024.2.0,<2025.0.0
-    - scipy 1.12.0
+    - scipy 1.12.0.*
     - pyyaml >=6.0.2,<7.0.0
     - pyaml-env >=1.2.1,<2.0.0
     - python-dotenv >=1.0.0,<2.0.0
@@ -61,20 +64,18 @@ requirements:
     - azure-storage-blob >=12.22.0,<13.0.0
     - azure-identity >=1.17.1,<2.0.0
 
-test:
-  imports:
-    - graphrag
-  commands:
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - graphrag
+      pip_check: true
+      python_version: ${{ python_min }}
 
 about:
   summary: A modular graph-based Retrieval-Augmented Generation (RAG) system
-  home: https://github.com/microsoft/graphrag
   license: MIT
   license_file: LICENSE
+  homepage: https://github.com/microsoft/graphrag
 
 extra:
   recipe-maintainers:
