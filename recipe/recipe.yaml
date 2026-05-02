@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: graphrag
-  version: "0.5.0"
+  version: "3.0.9"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/graphrag-${{ version }}.tar.gz
-  sha256: afd4fe829d0e6453da154ae7b3b4c630c6f4cefd855649679692ea26de39fcdd
+  sha256: 066e286d2602b9f8670c9f0f1748b9182b73afa6168b6de2d21d0c54258e3ddb
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
