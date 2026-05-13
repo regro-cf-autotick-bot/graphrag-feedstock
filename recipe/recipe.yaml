@@ -3,6 +3,7 @@ schema_version: 1
 context:
   name: graphrag
   version: "3.0.9"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
