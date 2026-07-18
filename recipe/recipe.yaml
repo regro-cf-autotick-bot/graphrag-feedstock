@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: graphrag
-  version: "0.5.0"
+  version: 3.1.1
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/graphrag-${{ version }}.tar.gz
-  sha256: afd4fe829d0e6453da154ae7b3b4c630c6f4cefd855649679692ea26de39fcdd
+  sha256: 3e7d82f1036340da209e5a630d04d398263d2a522eb1b2630b067cfa0055580b
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -25,45 +25,32 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }}
-    - typer >=0.12.5,<0.13.0
-    - typing_extensions >=4.12.2,<5.0.0
-    - matplotlib-base >=3.9.0,<4.0.0
-    - pandas >=2.2.3,<3.0.0
-    - pyarrow >=15.0.0,<16.0.0
-    - umap-learn >=0.5.6,<0.6.0
-    - future >=1.0.0,<2.0.0
-    - json-repair >=0.30.0,<0.31.0
+    - typer >=0.16,<1.dev0
+    - typing_extensions >=4.12,<5.dev0
+    - pandas >=3.0,<4.dev0
+    - pyarrow >=25.0,<26.dev0
+    - json-repair >=0.30,<1.dev0
     - python >=${{ python_min }},<3.13
-    - environs >=11.0.0,<12.0.0
-    - datashaper >=0.0.49,<0.0.50
-    - azure-search-documents >=11.4.0,<12.0.0
-    - lancedb >=0.13.0,<0.14.0
-    - uvloop >=0.20.0,<0.21.0
-    - nest-asyncio >=1.6.0,<2.0.0
-    - aiolimiter >=1.1.0,<2.0.0
-    - aiofiles >=24.1.0,<25.0.0
-    - openai >=1.51.2,<2.0.0
-    - nltk 3.9.1.*
-    - tiktoken >=0.7.0,<0.8.0
-    - numba 0.60.0.*
-    - numpy >=1.25.2,<2.0.0
-    - graspologic >=3.4.1,<4.0.0
-    - networkx >=3.0.0,<4.0.0
-    - fastparquet >=2024.2.0,<2025.0.0
-    - scipy 1.12.0.*
-    - pyyaml >=6.0.2,<7.0.0
-    - pyaml-env >=1.2.1,<2.0.0
-    - python-dotenv >=1.0.0,<2.0.0
-    - tenacity >=9.0.0,<10.0.0
-    - swifter >=1.4.0,<2.0.0
-    - pydantic >=2.9.2,<3.0.0
-    - rich >=13.6.0,<14.0.0
-    - textual >=0.78.0,<0.79.0
-    - python-devtools >=0.12.2,<0.13.0
-    - typing-extensions >=4.12.2,<5.0.0
-    - azure-storage-blob >=12.22.0,<13.0.0
-    - azure-identity >=1.17.1,<2.0.0
-
+    - azure-search-documents >=12.0,<13.dev0
+    - nltk >=3.9,<4.dev0
+    - numpy >=2.1,<3.dev0
+    - networkx >=3.4,<4.dev0
+    - pydantic >=2.10,<3.dev0
+    - azure-storage-blob >=12.24,<13.dev0
+    - azure-identity >=1.25,<2.dev0
+    - tqdm >=4.67,<5.dev0
+    - spacy >=3.8,<4.dev0
+    - graphrag-cache ==3.1.1
+    - graphrag-input ==3.1.1
+    - graphrag-storage ==3.1.1
+    - graspologic-native >=1.2,<1.3
+    - graphrag-chunking ==3.1.1
+    - graphrag-llm ==3.1.1
+    - graphrag-common ==3.1.1
+    - devtools >=0.12,<1.dev0
+    - textblob >=0.18,<1.dev0
+    - cython-blis >=1.0,<2.dev0
+    - graphrag-vectors ==3.1.1
 tests:
   - python:
       imports:
